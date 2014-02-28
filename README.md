@@ -3,34 +3,28 @@ Work Evidence
 
 My learning application in Django.
 
-If I work for somebody I need to write time amount and hour price for that. Then when I make invoices I can use this evidence.
+If you work for somebody and you need to keep a records of about that is that app for you.
 
 You can:
 * maintain list of customers
 * maintain evidence of work done for customers
-* display evidence with some filtering (year/month/customer) and two styles: timeline and by the customers.
+* display records with some filtering (year/month/customer) and two styles: timeline and by the customers.
 
-Application use I18n and is tranlatable. Views and templates use i18n posibilities of Django.
-
-App uses PostgreSQL as the default database, but is database independet of course.
+Application use I18n and is translatable. Views and templates use i18n posibilities of Django.
 
 
 Requirements
 ------------
-Django 1.5 (now testing 1.6)
-Psycopg2
-South
-
+* Django, tested on 1.5 and 1.6
+* Python, tested on 2.7
 
 Current status
 --------------
 
-I use this app for me. But the app is wired in my environment now. First I want to do is make it rellocable.
-
-Mabye I'll find something simillar and better :-) But it doesn't mean I'll stop learning Django and stop continuing development of this app.
+Application is in usable state. It would be probably difficult to incorporate it in your project doe to templates and authentification which are somehow egocentric. Use it as standalone app.
 
 
 Expected audience
 -----------------
 
-If you are more experienced, or you are enthuisiastic student of Django and want to collaborate, welcome to my club. I want to learn how to paricipate in collaborative work too. :-)
+If you are more experienced then me, or you are enthuisiastic student of Django and you want to collaborate, welcome to my club. I want to learn how to paricipate in collaborative work too. :-)
