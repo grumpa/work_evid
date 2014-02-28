@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Work Evid\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-28 13:20+0100\n"
-"PO-Revision-Date: 2014-02-28 13:22+0100\n"
+"POT-Creation-Date: 2014-02-28 14:11+0100\n"
+"PO-Revision-Date: 2014-02-28 14:12+0100\n"
 "Last-Translator: Viktor Matys <v.matys@seznam.cz>\n"
 "Language-Team: Czech <v.matys@grumpa.net>\n"
 "Language: cs\n"
@@ -224,3 +224,7 @@ msgstr "úhrnem"
 #: templates/work_evid/overviews.html:90
 msgid "sub"
 msgstr "mezisoučet"
+
+#: templates/work_evid/overviews.html:134
+msgid "No work in database. Nothing to show. Work first :-)."
+msgstr "Žádná práce v databázi. Není co ukázat. Nejdřív pracuj :-)."

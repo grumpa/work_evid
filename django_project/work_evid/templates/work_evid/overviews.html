@@ -2,7 +2,7 @@
 {% load i18n %}
 {% block title %} {% trans 'overviews' %} {% endblock %}
 {% block page_body %}
-
+{% if work.objecst.exists %}
 <div id="overview_filters">
     <form action="{% url 'work_evid:overviews' %}" method="post">
         {% csrf_token %}
@@ -130,4 +130,7 @@
             margin-left: 10px;
             padding: 0px 6px;">
 </div>
+{% else %}
+    <p><strong>{% trans 'No work in database. Nothing to show. Work first :-).' %}</strong></p>
+{% endif %}
 {% endblock %}
