@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Work Evid\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-18 15:19+0100\n"
-"PO-Revision-Date: 2014-02-18 15:14+0100\n"
+"POT-Creation-Date: 2014-02-28 13:20+0100\n"
+"PO-Revision-Date: 2014-02-28 13:22+0100\n"
 "Last-Translator: Viktor Matys <v.matys@seznam.cz>\n"
 "Language-Team: Czech <v.matys@grumpa.net>\n"
 "Language: cs\n"
@@ -39,12 +39,12 @@ msgstr "od data"
 msgid "description"
 msgstr "popis"
 
-#: models.py:19 models.py:31 templates/work_evid/index.html:34
+#: models.py:19 models.py:31 templates/work_evid/index.html:35
 #: templates/work_evid/overviews.html:52 templates/work_evid/overviews.html:66
 msgid "firm"
 msgstr "firma"
 
-#: models.py:32 templates/work_evid/index.html:35
+#: models.py:32 templates/work_evid/index.html:36
 #: templates/work_evid/overviews.html:67
 msgid "work date"
 msgstr "datum práce"
@@ -65,12 +65,12 @@ msgstr "co (stručně)"
 msgid "describe detailed"
 msgstr "detailní popis"
 
-#: views.py:59
+#: views.py:63
 #, python-format
 msgid "Cannot delete - works exist (%s)."
 msgstr "Nelze smazat - existují práce (%s)."
 
-#: views.py:60
+#: views.py:64
 msgid "Second problem"
 msgstr "Druhý problém"
 
@@ -90,11 +90,11 @@ msgstr "Zpět na stránku s přihlášením."
 msgid "login"
 msgstr "přihlášení"
 
-#: templates/registration/login.html:6
+#: templates/registration/login.html:7
 msgid "Wrong username or password. Try it again."
 msgstr "Chybné uživatelské jméno nebo heslo. Zkuste to znovu."
 
-#: templates/registration/login.html:23
+#: templates/registration/login.html:24
 msgid "submit login"
 msgstr "přihlásit"
 
@@ -136,7 +136,7 @@ msgstr "Přidat firmu"
 msgid "Firm edit / delete"
 msgstr "Firmu upravit / smazat"
 
-#: templates/work_evid/firm_edit.html:37 templates/work_evid/index.html:33
+#: templates/work_evid/firm_edit.html:37 templates/work_evid/index.html:34
 msgid "select"
 msgstr "vybrat"
 
@@ -144,15 +144,15 @@ msgstr "vybrat"
 msgid "period"
 msgstr "období"
 
-#: templates/work_evid/firm_edit.html:46 templates/work_evid/index.html:43
+#: templates/work_evid/firm_edit.html:46 templates/work_evid/index.html:44
 msgid "What to do"
 msgstr "Co udělat"
 
-#: templates/work_evid/firm_edit.html:48 templates/work_evid/index.html:45
+#: templates/work_evid/firm_edit.html:48 templates/work_evid/index.html:46
 msgid "Delete"
 msgstr "Smazat"
 
-#: templates/work_evid/firm_edit.html:49 templates/work_evid/index.html:46
+#: templates/work_evid/firm_edit.html:49 templates/work_evid/index.html:47
 msgid "Edit"
 msgstr "Upravit"
 
@@ -160,25 +160,29 @@ msgstr "Upravit"
 msgid "main page"
 msgstr "hlavní stránka"
 
-#: templates/work_evid/index.html:5
+#: templates/work_evid/index.html:6
 msgid "New Work"
 msgstr "Nová práce"
 
-#: templates/work_evid/index.html:30
+#: templates/work_evid/index.html:31
 msgid "Last Works"
 msgstr "Poslední práce"
 
-#: templates/work_evid/index.html:36 templates/work_evid/overviews.html:68
+#: templates/work_evid/index.html:37 templates/work_evid/overviews.html:68
 msgid "item price"
 msgstr "cena položky"
 
-#: templates/work_evid/index.html:37 templates/work_evid/overviews.html:69
+#: templates/work_evid/index.html:38 templates/work_evid/overviews.html:69
 msgid "items"
 msgstr "položek"
 
-#: templates/work_evid/index.html:38 templates/work_evid/overviews.html:71
+#: templates/work_evid/index.html:39 templates/work_evid/overviews.html:71
 msgid "what we did"
 msgstr "co jsme dělali"
+
+#: templates/work_evid/index.html:77
+msgid "No firm in database. Add some first."
+msgstr "Žádná firma v databázi. Nejdříve nějaké vytvoř."
 
 #: templates/work_evid/overviews.html:9
 msgid "Filters"

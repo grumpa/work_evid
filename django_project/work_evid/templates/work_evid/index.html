@@ -2,6 +2,7 @@
 {% load i18n %}
 {% block title %} {% trans 'main page' %} {% endblock %}
 {% block page_body %}
+{% if firms_exist %}
 <h2>{% trans 'New Work' %}</h2>
 <form action="{% url 'work_evid:index' %}" method="post">
     {% csrf_token %}
@@ -72,4 +73,7 @@
 </table>
     </fieldset>
 </form>
+{% else %}
+    <p><strong>{% trans 'No firm in database. Add some first.' %}</strong></p>
+{% endif %}
 {% endblock %}

@@ -37,7 +37,11 @@ def index(request):
     works = Work.objects.all()[:16]
     return render(request,
                   'work_evid/index.html',
-                  {'form': form, 'works': works, 'pk': pk})
+                  {'form': form,
+                   'works': works,
+                   'pk': pk,
+                   'firms_exist': Firm.objects.exists(),
+                   })
 
 
 @login_required
