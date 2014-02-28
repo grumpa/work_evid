@@ -2,7 +2,7 @@
 {% load i18n %}
 {% block title %} {% trans 'overviews' %} {% endblock %}
 {% block page_body %}
-{% if work.objecst.exists %}
+{% if work|length > 0 %}
 <div id="overview_filters">
     <form action="{% url 'work_evid:overviews' %}" method="post">
         {% csrf_token %}
