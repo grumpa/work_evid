@@ -1,0 +1,5 @@
+This directory contains things you need to do on django project level.
+
+1. Add url() for "work_evid" app into your project url.py file.
+2. Add 'work_evid' into your installed apps in settings.py file.
+

@@ -1,0 +1,31 @@
+{% extends 'work_evid/base.html' %}
+{% load i18n %}
+{% block title %} {% trans "login" %} {% endblock %}
+{% block body_attr %}onload="document.getElementById('id_username').focus()"{% endblock %}
+{% block page_body %}
+{% if form.errors %}
+     <p>{% trans "Wrong username or password. Try it again." %}</p>
+{% endif %}
+
+<form method="post" action="{% url 'work_evid:login' %}">
+{% csrf_token %}
+<table style="margin: 120px;">
+    <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td>
+            <input type="submit" value="{% trans "submit login" %}" />
+        </td>
+    </tr>
+</table>
+
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+{% endblock %}

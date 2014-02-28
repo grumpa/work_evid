@@ -1,0 +1,8 @@
+{% extends 'work_evid/base.html' %}
+{% load i18n %}
+{% block title %} {% trans "logout" %} {% endblock %}
+{% block page_body %}
+<p>{% trans "Logout was successful" %}.
+<a href="{% url 'work_evid:index' %}">{% trans "Back to login page" %}.</a>
+</p>
+{% endblock %}

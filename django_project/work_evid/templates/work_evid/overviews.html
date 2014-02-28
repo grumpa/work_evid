@@ -1,0 +1,133 @@
+{% extends 'work_evid/base.html' %}
+{% load i18n %}
+{% block title %} {% trans 'overviews' %} {% endblock %}
+{% block page_body %}
+
+<div id="overview_filters">
+    <form action="{% url 'work_evid:overviews' %}" method="post">
+        {% csrf_token %}
+        <strong>{% trans 'Filters' %}:</strong>
+        {% trans 'Year' %}:
+        <select name="year" onchange="submit()">
+            <option value="all">{% trans 'all' %}</option>
+            {% for year in years %}
+            {% if year == sel_year %}
+            <option value="{{ year }}" selected>{{ year }}</option>
+            {% else %}
+            <option value="{{ year }}">{{ year }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        {% trans 'Month' %}:
+        <select name="month" onchange="submit()">
+            <option value="all">{% trans 'all' %}</option>
+            {% for month in months %}
+            {% if month == sel_month %}
+            <option value="{{ month }}" selected>{{ month|stringformat:"02d" }}</option>
+            {% else %}
+            <option value="{{ month }}">{{ month|stringformat:"02d" }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        {% trans 'Firm' %}:
+        <select name="firm" onchange="submit()">
+            {% if sel_firm == 'all' %}
+            <option value="all" selected>{% trans 'all' %}</option>
+            {% else %}
+            <option value="all">{% trans 'all' %}</option>
+            {% endif %}
+            {% for firm in firms %}
+            {% if firm.pk == sel_firm %}
+            <option value="{{ firm.pk }}" selected>{{ firm.name }}</option>
+            {% else %}
+            <option value="{{ firm.pk }}">{{ firm.name }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        {% trans 'Order by' %}:
+        <select name="order" onchange="submit()">
+            <option value="date" {% if sel_order == 'date' %} selected {% endif %}>
+                {% trans 'date' %}</option>
+            <option value="firm" {% if sel_order == 'firm' %} selected {% endif %}>
+                {% trans 'firm' %}</option>
+        </select>
+        <input type="submit">
+    </form>
+</div>
+
+<script>
+    function side_detail(what) {
+        document.getElementById('side_detail').innerHTML = what
+    }
+</script>
+<table style="float: left;">
+    <thead>
+        <tr>
+            <th>{% trans 'firm' %}</th>
+            <th>{% trans 'work date' %}</th>
+            <th>{% trans 'item price' %}</th>
+            <th>{% trans 'items' %}</th>
+            <th>{% trans 'sum' %}</th>
+            <th>{% trans 'what we did' %}</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr style="font-weight: bold;">
+            <td colspan="3">&nbsp;</td>
+            <td class="right_pad">{% trans 'total' %}:</td>
+            <td class="right_pad">{{ works_total|stringformat:"6.2f" }}</td>
+            <td>&nbsp;</td>
+        </tr>
+    </tfoot>
+    <tbody>
+        {% for work in works %}
+        {% if sel_order == "firm" %}
+            {% ifchanged work.firm.name %}
+            <tr><td colspan="6">&nbsp;</td></tr>
+            <tr style="font-weight: bold;">
+                <td>{{ work.firm.name }}</td>
+                <td colspan="2">&nbsp;</td>
+                <td class="right_pad">{% trans 'sub' %}:</td>
+                <td class="right_pad">
+                    {% for fname, sub in works_sub.items %}
+                        {% if fname == work.firm.name %}
+                            {{ sub|stringformat:"6.2f" }}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            {% endifchanged %}
+        {% endif %}
+        <tr class="{% cycle 'tab_r1' 'tab_r2' as tabrow %}"
+            {% if work.what_detailed %}
+                onclick="side_detail('{{ work.what_detailed|linebreaks }}')"
+                style="cursor: pointer;"
+            {% endif %}>
+            <td>
+                {% if sel_order != "firm" %}
+                    {{ work.firm.name }}
+                {% endif %}
+            </td>
+            <td class="right">{{ work.date }}</td>
+            <td class="right_pad">{{ work.item_price }}</td>
+            <td class="right_pad">{{ work.items }}</td>
+            <td class="right_pad">{{ work.full_price|stringformat:"6.2f" }}</td>
+            <td>{{ work.what_brief }}
+                {% if work.what_detailed %}
+                <span style="float: right;">&nbsp;&raquo;</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div id="side_detail"
+     class="font_80"
+     style="float: left;
+            border: 1px solid grey;
+            max-width: 300px;
+            margin-left: 10px;
+            padding: 0px 6px;">
+</div>
+{% endblock %}

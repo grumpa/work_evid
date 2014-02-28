@@ -1,0 +1,40 @@
+{% load staticfiles %}
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+{% get_current_language as LANGUAGE_CODE %}
+<!-- Current language: {{ LANGUAGE_CODE }} -->
+<head>
+    <meta charset="UTF=8">
+    <title>
+        {% trans "Work Evidence" %} - {% block title %}{% endblock %}
+    </title>
+    <link type="text/css" rel="stylesheet" href="{% static 'work_evid/styles.css' %}">
+    <link rel="shortcut icon" href="{% static 'work_evid/favicon.ico' %}" />
+    {% comment %}Translators: meta-description tag{% endcomment %}
+    <meta name="description" content="{% trans 'Web application for evidence of work.' %}">
+    {% comment %}Translators: meta-keywords tag{% endcomment %}
+    <meta name="keywords" content="{% trans 'evidence, work, web application' %}">
+</head>
+
+<body {% block body_attr %}{% endblock %}>
+<div id="page">
+    <img src="{% static 'work_evid/images/smith.png' %}" style="float: right;">
+{% block page_title %}<h1>{% trans "Work Evidence" %}</h1>{% endblock %}
+{% block main_menu %}
+    <ul id="main_menu">
+        <li><a href="{% url 'work_evid:index' %}">{% trans 'works' %}</a></li>
+        <li><a href="{% url 'work_evid:overviews' %}">{% trans 'overviews' %}</a></li>
+        <li><a href="{% url 'work_evid:firm_edit' %}">{% trans 'firms edit' %}</a></li>
+        {% if user.is_authenticated %}
+        <li style="margin-left: 6em;"><a href="{% url 'work_evid:logout' %}">{% trans "logout" %}</a></li>
+        {% endif %}
+    </ul>
+{% endblock %}
+{% block page_body %}
+    <p>There should be something here.</p>
+{% endblock %}
+</div>
+</body>
+
+</html>

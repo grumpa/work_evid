@@ -1,0 +1,222 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Work Evid\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-02-18 15:19+0100\n"
+"PO-Revision-Date: 2014-02-18 15:14+0100\n"
+"Last-Translator: Viktor Matys <v.matys@seznam.cz>\n"
+"Language-Team: Czech <v.matys@grumpa.net>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SourceCharset: cs\n"
+
+#: models.py:10 templates/work_evid/firm_edit.html:38
+msgid "firm name"
+msgstr "jméno firmy"
+
+#: models.py:12
+msgid "periode [months]"
+msgstr "perioda [měsíce]"
+
+#: models.py:13
+msgid "How often we make an invoice."
+msgstr "Jak často fakturujeme."
+
+#: models.py:14 templates/work_evid/firm_edit.html:40
+msgid "from date"
+msgstr "od data"
+
+#: models.py:15
+msgid "description"
+msgstr "popis"
+
+#: models.py:19 models.py:31 templates/work_evid/index.html:34
+#: templates/work_evid/overviews.html:52 templates/work_evid/overviews.html:66
+msgid "firm"
+msgstr "firma"
+
+#: models.py:32 templates/work_evid/index.html:35
+#: templates/work_evid/overviews.html:67
+msgid "work date"
+msgstr "datum práce"
+
+#: models.py:35
+msgid "price for item"
+msgstr "cena za jednotku"
+
+#: models.py:39
+msgid "ammount of items"
+msgstr "množství jednotek"
+
+#: models.py:40
+msgid "what (briefly)"
+msgstr "co (stručně)"
+
+#: models.py:41
+msgid "describe detailed"
+msgstr "detailní popis"
+
+#: views.py:59
+#, python-format
+msgid "Cannot delete - works exist (%s)."
+msgstr "Nelze smazat - existují práce (%s)."
+
+#: views.py:60
+msgid "Second problem"
+msgstr "Druhý problém"
+
+#: templates/registration/logged_out.html:3 templates/work_evid/base.html:30
+msgid "logout"
+msgstr "odhlášení"
+
+#: templates/registration/logged_out.html:5
+msgid "Logout was successful"
+msgstr "Odhlášení se zdařilo."
+
+#: templates/registration/logged_out.html:6
+msgid "Back to login page"
+msgstr "Zpět na stránku s přihlášením."
+
+#: templates/registration/login.html:3
+msgid "login"
+msgstr "přihlášení"
+
+#: templates/registration/login.html:6
+msgid "Wrong username or password. Try it again."
+msgstr "Chybné uživatelské jméno nebo heslo. Zkuste to znovu."
+
+#: templates/registration/login.html:23
+msgid "submit login"
+msgstr "přihlásit"
+
+#: templates/work_evid/base.html:10 templates/work_evid/base.html.py:23
+msgid "Work Evidence"
+msgstr "Evidence práce"
+
+#. Translators: meta-description tag
+#: templates/work_evid/base.html:15
+msgid "Web application for evidence of work."
+msgstr "Webová aplikace pro evidenci práce."
+
+#. Translators: meta-keywords tag
+#: templates/work_evid/base.html:17
+msgid "evidence, work, web application"
+msgstr "evidence, práce, webová aplikace"
+
+#: templates/work_evid/base.html:26
+msgid "works"
+msgstr "práce"
+
+#: templates/work_evid/base.html:27 templates/work_evid/overviews.html:3
+msgid "overviews"
+msgstr "přehledy"
+
+#: templates/work_evid/base.html:28
+msgid "firms edit"
+msgstr "editace firem"
+
+#: templates/work_evid/firm_edit.html:3
+msgid "firm edit form"
+msgstr "formulář editace firem"
+
+#: templates/work_evid/firm_edit.html:5
+msgid "Add a firm"
+msgstr "Přidat firmu"
+
+#: templates/work_evid/firm_edit.html:32
+msgid "Firm edit / delete"
+msgstr "Firmu upravit / smazat"
+
+#: templates/work_evid/firm_edit.html:37 templates/work_evid/index.html:33
+msgid "select"
+msgstr "vybrat"
+
+#: templates/work_evid/firm_edit.html:39
+msgid "period"
+msgstr "období"
+
+#: templates/work_evid/firm_edit.html:46 templates/work_evid/index.html:43
+msgid "What to do"
+msgstr "Co udělat"
+
+#: templates/work_evid/firm_edit.html:48 templates/work_evid/index.html:45
+msgid "Delete"
+msgstr "Smazat"
+
+#: templates/work_evid/firm_edit.html:49 templates/work_evid/index.html:46
+msgid "Edit"
+msgstr "Upravit"
+
+#: templates/work_evid/index.html:3
+msgid "main page"
+msgstr "hlavní stránka"
+
+#: templates/work_evid/index.html:5
+msgid "New Work"
+msgstr "Nová práce"
+
+#: templates/work_evid/index.html:30
+msgid "Last Works"
+msgstr "Poslední práce"
+
+#: templates/work_evid/index.html:36 templates/work_evid/overviews.html:68
+msgid "item price"
+msgstr "cena položky"
+
+#: templates/work_evid/index.html:37 templates/work_evid/overviews.html:69
+msgid "items"
+msgstr "položek"
+
+#: templates/work_evid/index.html:38 templates/work_evid/overviews.html:71
+msgid "what we did"
+msgstr "co jsme dělali"
+
+#: templates/work_evid/overviews.html:9
+msgid "Filters"
+msgstr "Filtry"
+
+#: templates/work_evid/overviews.html:10
+msgid "Year"
+msgstr "Rok"
+
+#: templates/work_evid/overviews.html:12 templates/work_evid/overviews.html:23
+#: templates/work_evid/overviews.html:35 templates/work_evid/overviews.html:37
+msgid "all"
+msgstr "všechny"
+
+#: templates/work_evid/overviews.html:21
+msgid "Month"
+msgstr "Měsíc"
+
+#: templates/work_evid/overviews.html:32
+msgid "Firm"
+msgstr "Firma"
+
+#: templates/work_evid/overviews.html:47
+msgid "Order by"
+msgstr "Řadit dle"
+
+#: templates/work_evid/overviews.html:50
+msgid "date"
+msgstr "datum"
+
+#: templates/work_evid/overviews.html:70
+msgid "sum"
+msgstr "suma"
+
+#: templates/work_evid/overviews.html:77
+msgid "total"
+msgstr "úhrnem"
+
+#: templates/work_evid/overviews.html:90
+msgid "sub"
+msgstr "mezisoučet"
