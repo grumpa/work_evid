@@ -10,6 +10,8 @@ You can:
 * maintain evidence of work done for customers
 * display evidence with some filtering (year/month/customer) and two styles: timeline and by the customers.
 
+Application use I18n and is tranlatable. Views and templates use i18n posibilities of Django.
+
 
 Current status
 --------------
