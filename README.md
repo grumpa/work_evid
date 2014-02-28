@@ -12,6 +12,15 @@ You can:
 
 Application use I18n and is tranlatable. Views and templates use i18n posibilities of Django.
 
+App uses PostgreSQL as the default database, but is database independet of course.
+
+
+Requirements
+------------
+Django 1.5 (now testing 1.6)
+Psycopg2
+South
+
 
 Current status
 --------------
