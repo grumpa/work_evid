@@ -3,7 +3,6 @@
 
 from django.utils.translation import ugettext as _
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
 from django.utils import timezone
 from work_evid.models import Firm, Work, FirmForm, WorkForm
 from django.contrib.auth.decorators import login_required
