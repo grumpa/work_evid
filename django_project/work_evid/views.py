@@ -10,7 +10,8 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
-    form = WorkForm() # default
+    "Manages work records."
+    form = WorkForm()  # default
     pk = None
     if request.method == 'POST':
         if 'action' in request.POST:
@@ -45,7 +46,8 @@ def index(request):
 
 @login_required
 def firm_edit(request):
-    form = FirmForm() # default - empty form
+    "Manage firms records."
+    form = FirmForm()  # default - empty form
     fpk = None
     if request.method == 'POST':
         if 'firm_act' in request.POST:
@@ -76,11 +78,12 @@ def firm_edit(request):
     firms = Firm.objects.all()
     return render(request,
                   'work_evid/firm_edit.html',
-                  { 'form': form, 'fpk':fpk, 'firms': firms })
+                  {'form': form, 'fpk': fpk, 'firms': firms})
 
 
 @login_required
 def overviews(request):
+    "Data overview with filtering possibility."
     cur_year = timezone.now().year
     if request.method == 'POST':
         sel_year = request.POST['year']
@@ -131,19 +134,20 @@ def overviews(request):
     for fn in works_sub:
         works_total += works_sub[fn]
     years = list()
-    for year in Work.objects.dates('date','year','ASC'):
+    for year in Work.objects.dates('date', 'year', 'ASC'):
         years.append(year.year)
-    return render(request,
-                  'work_evid/overviews.html', {
-                    'works': works,
-                    'firms': firms,
-                    'sel_year': sel_year,
-                    'sel_month': sel_month,
-                    'sel_firm': sel_firm,
-                    'sel_order': sel_order,
-                    'months': range(1,13),
-                    'years': years,
-                    'works_total': works_total,
-                    'works_sub': works_sub,
-                    })
-
+    return render(
+        request,
+        'work_evid/overviews.html', {
+            'works': works,
+            'firms': firms,
+            'sel_year': sel_year,
+            'sel_month': sel_month,
+            'sel_firm': sel_firm,
+            'sel_order': sel_order,
+            'months': range(1, 13),
+            'years': years,
+            'works_total': works_total,
+            'works_sub': works_sub,
+            }
+        )
