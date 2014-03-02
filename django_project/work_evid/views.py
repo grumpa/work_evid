@@ -14,7 +14,7 @@ def index(request):
     form = WorkForm() # default
     pk = None
     if request.method == 'POST':
-        if request.POST.has_key('action'):
+        if 'action' in request.POST:
             pk = request.POST['pk']
             work = Work.objects.get(pk=pk)
             if request.POST['action'] == 'edit':
@@ -49,7 +49,7 @@ def firm_edit(request):
     form = FirmForm() # default - empty form
     fpk = None
     if request.method == 'POST':
-        if request.POST.has_key('firm_act'):
+        if 'firm_act' in request.POST:
             fpk = request.POST['firm_pk']
             firm = Firm.objects.get(pk=fpk)
             if request.POST['firm_act'] == 'edit':
@@ -93,19 +93,19 @@ def overviews(request):
         sel_order = request.POST['order']
         request.session['sel_order'] = sel_order
     else:
-        if request.session.has_key('sel_year'):
+        if 'sel_year' in request.session:
             sel_year = request.session['sel_year']
         else:
             sel_year = timezone.now().year
-        if request.session.has_key('sel_month'):
+        if 'sel_month' in request.session:
             sel_month = request.session['sel_month']
         else:
             sel_month = timezone.now().month
-        if request.session.has_key('sel_firm'):
+        if 'sel_firm' in request.session:
             sel_firm = request.session['sel_firm']
         else:
             sel_firm = "all"
-        if request.session.has_key('sel_order'):
+        if 'sel_order' in request.session:
             sel_order = request.session['sel_order']
         else:
             sel_order = "date"
