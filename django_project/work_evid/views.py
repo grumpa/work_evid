@@ -84,7 +84,6 @@ def firm_edit(request):
 @login_required
 def overviews(request):
     "Data overview with filtering possibility."
-    cur_year = timezone.now().year
     if request.method == 'POST':
         sel_year = request.POST['year']
         request.session['sel_year'] = sel_year
