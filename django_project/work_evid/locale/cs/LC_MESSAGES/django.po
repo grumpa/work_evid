@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Work Evid\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-28 14:11+0100\n"
-"PO-Revision-Date: 2014-02-28 14:12+0100\n"
+"POT-Creation-Date: 2014-03-05 20:59+0100\n"
+"PO-Revision-Date: 2014-03-05 21:00+0100\n"
 "Last-Translator: Viktor Matys <v.matys@seznam.cz>\n"
 "Language-Team: Czech <v.matys@grumpa.net>\n"
 "Language: cs\n"
@@ -40,12 +40,12 @@ msgid "description"
 msgstr "popis"
 
 #: models.py:19 models.py:31 templates/work_evid/index.html:35
-#: templates/work_evid/overviews.html:52 templates/work_evid/overviews.html:66
+#: templates/work_evid/overviews.html:52 templates/work_evid/overviews.html:69
 msgid "firm"
 msgstr "firma"
 
 #: models.py:32 templates/work_evid/index.html:36
-#: templates/work_evid/overviews.html:67
+#: templates/work_evid/overviews.html:70
 msgid "work date"
 msgstr "datum práce"
 
@@ -65,16 +65,16 @@ msgstr "co (stručně)"
 msgid "describe detailed"
 msgstr "detailní popis"
 
-#: views.py:63
+#: views.py:64
 #, python-format
 msgid "Cannot delete - works exist (%s)."
 msgstr "Nelze smazat - existují práce (%s)."
 
-#: views.py:64
+#: views.py:65
 msgid "Second problem"
 msgstr "Druhý problém"
 
-#: templates/registration/logged_out.html:3 templates/work_evid/base.html:30
+#: templates/registration/logged_out.html:3 templates/work_evid/base.html:31
 msgid "logout"
 msgstr "odhlášení"
 
@@ -112,17 +112,34 @@ msgstr "Webová aplikace pro evidenci práce."
 msgid "evidence, work, web application"
 msgstr "evidence, práce, webová aplikace"
 
-#: templates/work_evid/base.html:26
+#: templates/work_evid/base.html:27
 msgid "works"
 msgstr "práce"
 
-#: templates/work_evid/base.html:27 templates/work_evid/overviews.html:3
+#: templates/work_evid/base.html:28 templates/work_evid/delete_work.html:3
+#: templates/work_evid/overviews.html:3
 msgid "overviews"
 msgstr "přehledy"
 
-#: templates/work_evid/base.html:28
+#: templates/work_evid/base.html:29
 msgid "firms edit"
 msgstr "editace firem"
+
+#: templates/work_evid/delete_work.html:6
+msgid "Delete work items"
+msgstr "Smazat položky práce"
+
+#: templates/work_evid/delete_work.html:15
+msgid "Delete this"
+msgstr "Smazat tyto"
+
+#: templates/work_evid/delete_work.html:19
+msgid "yes"
+msgstr "ano"
+
+#: templates/work_evid/delete_work.html:24
+msgid "no"
+msgstr "ne"
 
 #: templates/work_evid/firm_edit.html:3
 msgid "firm edit form"
@@ -168,15 +185,15 @@ msgstr "Nová práce"
 msgid "Last Works"
 msgstr "Poslední práce"
 
-#: templates/work_evid/index.html:37 templates/work_evid/overviews.html:68
+#: templates/work_evid/index.html:37 templates/work_evid/overviews.html:71
 msgid "item price"
 msgstr "cena položky"
 
-#: templates/work_evid/index.html:38 templates/work_evid/overviews.html:69
+#: templates/work_evid/index.html:38 templates/work_evid/overviews.html:72
 msgid "items"
 msgstr "položek"
 
-#: templates/work_evid/index.html:39 templates/work_evid/overviews.html:71
+#: templates/work_evid/index.html:39 templates/work_evid/overviews.html:74
 msgid "what we did"
 msgstr "co jsme dělali"
 
@@ -213,18 +230,22 @@ msgstr "Řadit dle"
 msgid "date"
 msgstr "datum"
 
-#: templates/work_evid/overviews.html:70
+#: templates/work_evid/overviews.html:73
 msgid "sum"
 msgstr "suma"
 
-#: templates/work_evid/overviews.html:77
+#: templates/work_evid/overviews.html:81
 msgid "total"
 msgstr "úhrnem"
 
-#: templates/work_evid/overviews.html:90
+#: templates/work_evid/overviews.html:87
+msgid "delete selected"
+msgstr "smazat vybrané"
+
+#: templates/work_evid/overviews.html:100
 msgid "sub"
 msgstr "mezisoučet"
 
-#: templates/work_evid/overviews.html:134
+#: templates/work_evid/overviews.html:146
 msgid "No work in database. Nothing to show. Work first :-)."
 msgstr "Žádná práce v databázi. Není co ukázat. Nejdřív pracuj :-)."

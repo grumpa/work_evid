@@ -1,0 +1,26 @@
+{% extends 'work_evid/base.html' %}
+{% load i18n %}
+{% block title %} {% trans 'overviews' %} {% endblock %}
+{% block page_body %}
+
+<h2>{% trans 'Delete work items' %}</h2>
+<table style="margin-bottom: 6px;">
+{% for work in works %}
+    <tr>
+        <td>{{ work.date }}</td>
+        <td>{{ work.what_brief }}</td>
+    </tr>
+{% endfor %}
+</table>
+{% trans 'Delete this' %}:
+<form action="{% url 'work_evid:delete_work' %}" method="post" style="display: inline-block;">
+    {% csrf_token %}
+    <input type="hidden" name="confirmed" value="1">
+    <input type="submit" value="{% trans 'yes' %}">
+</form>
+<form action="{% url 'work_evid:delete_work' %}" method="post" style="display: inline-block;">
+    {% csrf_token %}
+    <input type="hidden" name="confirmed" value="0">
+    <input type="submit" value="{% trans 'no' %}">
+</form>
+{% endblock %}

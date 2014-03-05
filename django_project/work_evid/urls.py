@@ -6,6 +6,7 @@ from work_evid import views
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     url(r'^overviews/$', views.overviews, name='overviews'),
+    url(r'^delete_work/$', views.delete_work, name='delete_work'),
     url(r'firm_edit/$', views.firm_edit, name='firm_edit'),
     url(r'^accounts/login/$', django.contrib.auth.views.login, name='login'),
     url(r'^accounts/logout/$', django.contrib.auth.views.logout, name='logout'),

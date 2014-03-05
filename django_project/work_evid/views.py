@@ -2,7 +2,7 @@
 "Views pro application work_evid."
 
 from django.utils.translation import ugettext as _
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils import timezone
 from work_evid.models import Firm, Work, FirmForm, WorkForm
 from django.contrib.auth.decorators import login_required
@@ -150,3 +150,32 @@ def overviews(request):
             'works_sub': works_sub,
             }
         )
+
+
+def delete_work(request):
+    """Delete work items seleceted in 'overview' view."""
+
+    if request.method == 'POST':
+        if 'confirmed' in request.POST:
+            # if confirmed by user in delete_work.html, delete
+            if request.POST['confirmed'] == '1':
+                Work.objects.filter(pk__in=request.session['wks']).delete()
+                #message - deleted nn items
+            else:
+                # message - not deleting
+                pass
+            request.session['wks'] = None
+            return redirect('work_evid:overviews')
+        else:
+            if 'work_del' in request.POST:
+                wks = request.POST.getlist('work_del')
+                works = Work.objects.filter(pk__in=wks)
+                request.session['wks'] = wks
+                return render(request, 'work_evid/delete_work.html', {'works': works, 'wks': wks})
+            else:
+                # want to delete, but nothing selected
+                # message - you selected nothing
+                return redirect('work_evid:overviews')
+    else:
+        # impossible
+        return redirect('work_evid:overviews')
