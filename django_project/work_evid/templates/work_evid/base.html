@@ -21,16 +21,18 @@
 <div id="page">
     <img src="{% static 'work_evid/images/smith.png' %}" style="float: right;" alt="Smith works.">
 {% block page_title %}<h1>{% trans "Work Evidence" %}</h1>{% endblock %}
-{% block main_menu %}
-    <ul id="main_menu">
-        <li><a href="{% url 'work_evid:index' %}">{% trans 'works' %}</a></li>
-        <li><a href="{% url 'work_evid:overviews' %}">{% trans 'overviews' %}</a></li>
-        <li><a href="{% url 'work_evid:firm_edit' %}">{% trans 'firms edit' %}</a></li>
-        {% if user.is_authenticated %}
-        <li style="margin-left: 6em;"><a href="{% url 'work_evid:logout' %}">{% trans "logout" %}</a></li>
-        {% endif %}
-    </ul>
-{% endblock %}
+{% if user.is_authenticated %}
+    {% block main_menu %}
+        <ul id="main_menu">
+            <li><a href="{% url 'work_evid:index' %}">{% trans 'works' %}</a></li>
+            <li><a href="{% url 'work_evid:overviews' %}">{% trans 'overviews' %}</a></li>
+            <li><a href="{% url 'work_evid:firm_edit' %}">{% trans 'firms edit' %}</a></li>
+            {% if user.is_authenticated %}
+            <li style="margin-left: 6em;"><a href="{% url 'work_evid:logout' %}">{% trans "logout" %}</a></li>
+            {% endif %}
+        </ul>
+    {% endblock %}
+{% endif %}
 {% block page_body %}
     <p>There should be something here.</p>
 {% endblock %}
