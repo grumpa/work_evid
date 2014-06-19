@@ -1,5 +1,6 @@
 {% extends 'work_evid/base.html' %}
 {% load i18n %}
+{% load staticfiles %}
 {% block title %} {% trans 'firm create' %} {% endblock %}
 {% block page_body %}
 <h2>{% trans 'Firm - create' %}</h2>
@@ -9,5 +10,8 @@
     {{ form.as_table }}
     </table>
     <input type="submit">
+    <a href="{% url 'work_evid:firm_list' %}">
+        <button type="button">{% trans 'Back' %}</button>
+    </a>
 </form>
 {% endblock %}

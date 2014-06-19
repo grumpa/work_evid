@@ -24,7 +24,7 @@ th {
 }
 .tab_r2 {}
 
-input, textarea {
+input, textarea, button {
     border: solid 1px grey;
     border-radius: 3px;
 }

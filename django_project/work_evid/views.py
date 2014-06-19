@@ -5,8 +5,16 @@ from django.utils.translation import ugettext as _
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 from work_evid.models import Firm, Work, FirmForm, WorkForm
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
+
+class LoginRequiredMixin(object):
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(LoginRequiredMixin, self).dispatch(*args, **kwargs)
 
 
 @login_required
@@ -43,43 +51,6 @@ def index(request):
                    'pk': pk,
                    'firms_exist': Firm.objects.exists(),
                    })
-
-
-@login_required
-def firm_edit(request):
-    "Manage firms records."
-    form = FirmForm()  # default - empty form
-    fpk = None
-    if request.method == 'POST':
-        if 'firm_act' in request.POST:
-            fpk = request.POST['firm_pk']
-            firm = Firm.objects.get(pk=fpk)
-            if request.POST['firm_act'] == 'edit':
-                form = FirmForm(instance=firm)
-            elif request.POST['firm_act'] == 'delete':
-                works = firm.work_set.count()
-                if works == 0:
-                    Firm.objects.get(pk=fpk).delete()
-                else:
-                    form = FirmForm()
-                    form.errors['__all__'] = form.error_class([_('Cannot delete - works exist (%s).') % (works,)])
-                    form.errors['__all__'] += form.error_class([_('Second problem')])
-        else:
-            pk = request.POST['pk']
-            if pk != "None":
-                # update
-                firm = Firm.objects.get(pk=pk)
-                form = FirmForm(request.POST, instance=firm)
-            else:
-                # new record
-                form = FirmForm(request.POST)
-            if form.is_valid():
-                form.save()
-                form = FirmForm()
-    firms = Firm.objects.all()
-    return render(request,
-                  'work_evid/firm_edit.html',
-                  {'form': form, 'fpk': fpk, 'firms': firms})
 
 
 @login_required
@@ -182,15 +153,22 @@ def delete_work(request):
         return redirect('work_evid:overviews')
 
 
-class FirmList(ListView):
+class FirmList(LoginRequiredMixin, ListView):
     model = Firm
 
-class FirmCreate(CreateView):
+
+class FirmCreate(LoginRequiredMixin, CreateView):
     model = Firm
 
-class FirmDetail(DetailView):
+
+class FirmDetail(LoginRequiredMixin, DetailView):
     model = Firm
 
-class FirmUpdate(UpdateView):
+
+class FirmUpdate(LoginRequiredMixin, UpdateView):
     model = Firm
-    
+
+
+class FirmDelete(LoginRequiredMixin, DeleteView):
+    model = Firm
+    success_url = reverse_lazy('work_evid:firm_list')

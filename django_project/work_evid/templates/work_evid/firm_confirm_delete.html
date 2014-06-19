@@ -1,6 +1,5 @@
 {% extends 'work_evid/base.html' %}
 {% load i18n %}
-{% load staticfiles %}
 {% block title %} {% trans 'firm list' %} {% endblock %}
 {% block page_body %}
 <h2>{% trans 'Firm detail' %}</h2>
@@ -24,16 +23,14 @@
         </tr>
     </tbody>
 </table>
-<div style="margin-top: 6px;">
-<a href="{% url 'work_evid:firm_list' %}">
-    <button type="button">
-  <img src="{% static 'work_evid/images/icon_list_16.png' %}" alt="{% trans 'list' %}">
-    {% trans 'To list' %}
-    </button></a>
-<a href="{% url 'work_evid:firm_update' object.pk %}">
-    <button type="button">
-  <img src="{% static 'work_evid/images/icon_edit_16.png' %}" alt="{% trans 'update' %}">
-    {% trans 'Update' %}
-    </button></a>
-</div>
+<p><strong>{% trans 'Really delete' %}?</strong></p>
+<form action="" method="post">
+   {% csrf_token %}
+   <input type="submit" value="{% trans 'Delete' %}">
+   <span>
+      <a href="{% url 'work_evid:firm_list' %}">
+         <button type="button">{% trans 'No' %}</button>
+      </a>
+   </span>
+</form>
 {% endblock %}

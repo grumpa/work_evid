@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^firm/add/$', views.FirmCreate.as_view(), name='firm_create'),
     url(r'^firm/detail/(?P<pk>\d+)/$', views.FirmDetail.as_view(), name='firm_detail'),
     url(r'^firm/update/(?P<pk>\d+)/$', views.FirmUpdate.as_view(), name='firm_update'),
-    url(r'^firm_edit/$', views.firm_edit, name='firm_edit'),
+    url(r'^firm/delete/(?P<pk>\d+)/$', views.FirmDelete.as_view(), name='firm_delete'),
     url(r'^accounts/login/$', django.contrib.auth.views.login, name='login'),
     url(r'^accounts/logout/$', django.contrib.auth.views.logout, name='logout'),
 )
