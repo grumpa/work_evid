@@ -3,6 +3,7 @@
 from django.utils.translation import ugettext as _
 from django.db import models
 from django.forms import ModelForm
+from django.core.urlresolvers import reverse
 from django.utils import timezone
 
 class Firm(models.Model):
@@ -13,6 +14,9 @@ class Firm(models.Model):
                                   help_text=_('How often we make an invoice.'))
     from_date = models.DateField(default=timezone.now(), verbose_name=_('from date'))
     description = models.TextField(blank=True, verbose_name=_('description'))
+
+    def get_absolute_url(self):
+        return reverse('work_evid:firm_detail', kwargs={'pk': self.pk})
 
     class Meta:
         ordering = ['name']

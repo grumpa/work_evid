@@ -1,0 +1,27 @@
+{% extends 'work_evid/base.html' %}
+{% load i18n %}
+{% block title %} {% trans 'firm list' %} {% endblock %}
+{% block page_body %}
+<h2>{% trans 'Firm detail' %}</h2>
+<table>
+    <tbody>
+        <tr>
+            <th>{% trans 'firm name' %}</th>
+            <td>{{ object.name }}</td>
+        </tr>
+        <tr>
+            <th>{% trans 'period' %}</th>
+            <td class="center">{{ object.periode }}</td>
+        </tr>
+        <tr>
+            <th>{% trans 'from date' %}</th>
+            <td>{{ object.from_date }}</td>
+        </tr>
+        <tr>
+            <th>{% trans 'description' %}</th>
+            <td>{{ object.description }}</td>
+        </tr>
+    </tbody>
+</table>
+<a href="{% url 'work_evid:firm_list' %}">{% trans 'Back to list' %}</a>
+{% endblock %}

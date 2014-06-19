@@ -4,6 +4,7 @@
 from django.utils.translation import ugettext as _
 from django.shortcuts import render, redirect
 from django.utils import timezone
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from work_evid.models import Firm, Work, FirmForm, WorkForm
 from django.contrib.auth.decorators import login_required
 
@@ -179,3 +180,17 @@ def delete_work(request):
     else:
         # impossible
         return redirect('work_evid:overviews')
+
+
+class FirmList(ListView):
+    model = Firm
+
+class FirmCreate(CreateView):
+    model = Firm
+
+class FirmDetail(DetailView):
+    model = Firm
+
+class FirmUpdate(UpdateView):
+    model = Firm
+    
