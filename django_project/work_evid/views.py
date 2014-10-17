@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
-from work_evid.models import Firm, Work, FirmForm, WorkForm
+from work_evid.models import Firm, Work, WorkForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 

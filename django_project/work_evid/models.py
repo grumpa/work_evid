@@ -27,11 +27,6 @@ class Firm(models.Model):
         return self.name
 
 
-class FirmForm(ModelForm):
-    class Meta:
-        model = Firm
-
-
 class Work(models.Model):
     "Work evidence model."
     firm = models.ForeignKey(Firm, verbose_name=_('firm'))
