@@ -6,6 +6,7 @@ from django.forms import ModelForm
 from django.core.urlresolvers import reverse
 from django.utils import timezone
 
+
 class Firm(models.Model):
     "Simple firm database."
     name = models.CharField(max_length=60, verbose_name=_('firm name'))
@@ -21,10 +22,11 @@ class Firm(models.Model):
     class Meta:
         ordering = ['name']
         verbose_name = _('firm')
-    
+
     def __unicode__(self):
         return self.name
-    
+
+
 class FirmForm(ModelForm):
     class Meta:
         model = Firm
@@ -50,9 +52,10 @@ class Work(models.Model):
         return self.items * self.item_price
 
     #full_price = property(_get_full_price)
-    
+
     class Meta:
         ordering = ['-date']
+
 
 class WorkForm(ModelForm):
     class Meta:
