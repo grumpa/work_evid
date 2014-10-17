@@ -55,3 +55,5 @@ class Work(models.Model):
 class WorkForm(ModelForm):
     class Meta:
         model = Work
+        fields = ['firm', 'date', 'item_price', 'items', 'what_brief', 'what_detailed']
+
