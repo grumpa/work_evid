@@ -57,3 +57,18 @@ class WorkForm(ModelForm):
         model = Work
         fields = ['firm', 'date', 'item_price', 'items', 'what_brief', 'what_detailed']
 
+
+class Todo(models.Model):
+    firm = models.ForeignKey(Firm, verbose_name=_('firm'))
+    date = models.DateField(default=timezone.now, verbose_name=_('created'))
+    todo = models.TextField(blank=True, verbose_name=_('todo'))
+    finished = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return '{0} {1} {2}'.format(self.date, self.firm[:12], self.todo[:40])
+
+    def get_absolute_url(self):
+        return reverse('work_evid:todo_detail', kwargs={'pk': self.pk})
+
+    class Meta:
+        ordering = ['finished', '-date']

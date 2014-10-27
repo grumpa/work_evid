@@ -1,0 +1,22 @@
+{% load i18n %}
+{% load markdown_deux_tags %}
+<table>
+    <tbody>
+        <tr>
+            <th>{% trans 'firm name' %}</th>
+            <td>{{ object.firm.name }}</td>
+        </tr>
+        <tr>
+            <th>{% trans 'date' %}</th>
+            <td>{{ object.date }}</td>
+        </tr>
+        <tr>
+            <th>{% trans 'todo' %}</th>
+            <td>{{ object.todo|markdown }}</td>
+        </tr>
+        <tr>
+            <th>{% trans 'finished' %}</th>
+            <td>{{ object.finished }}</td>
+        </tr>
+    </tbody>
+</table>

@@ -84,3 +84,7 @@ input, textarea, button {
     font-weight:  bold;
     color: #444;
 }
+
+.todo-finished {
+    color: grey;
+}

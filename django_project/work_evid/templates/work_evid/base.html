@@ -24,6 +24,7 @@
 {% if user.is_authenticated %}
     {% block main_menu %}
         <ul id="main_menu">
+            <li><a href="{% url 'work_evid:todo_list' %}">{% trans 'todo' %}</a></li>
             <li><a href="{% url 'work_evid:index' %}">{% trans 'works' %}</a></li>
             <li><a href="{% url 'work_evid:overviews' %}">{% trans 'overviews' %}</a></li>
             <li><a href="{% url 'work_evid:firm_list' %}">{% trans 'firms edit' %}</a></li>

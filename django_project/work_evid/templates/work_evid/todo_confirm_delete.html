@@ -1,0 +1,19 @@
+{% extends 'work_evid/base.html' %}
+{% load i18n %}
+{% block title %} {% trans 'todo confirm delete' %} {% endblock %}
+{% block page_body %}
+<h2>{% trans 'Todo detail' %}</h2>
+
+{% include 'work_evid/todo_detail_table.html' %}
+
+<p><strong>{% trans 'Really delete' %}?</strong></p>
+<form action="" method="post">
+   {% csrf_token %}
+   <input type="submit" value="{% trans 'Delete' %}">
+   <span>
+      <a href="{% url 'work_evid:todo_list' %}">
+         <button type="button">{% trans 'No' %}</button>
+      </a>
+   </span>
+</form>
+{% endblock %}
