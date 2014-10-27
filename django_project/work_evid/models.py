@@ -13,7 +13,7 @@ class Firm(models.Model):
     periode = models.IntegerField(default=1,
                                   verbose_name=_('periode [months]'),
                                   help_text=_('How often we make an invoice.'))
-    from_date = models.DateField(default=timezone.now(), verbose_name=_('from date'))
+    from_date = models.DateField(default=timezone.now, verbose_name=_('from date'))
     description = models.TextField(blank=True, verbose_name=_('description'))
 
     def get_absolute_url(self):
@@ -30,7 +30,7 @@ class Firm(models.Model):
 class Work(models.Model):
     "Work evidence model."
     firm = models.ForeignKey(Firm, verbose_name=_('firm'))
-    date = models.DateField(default=timezone.now(), verbose_name=_('work date'))
+    date = models.DateField(default=timezone.now, verbose_name=_('work date'))
     item_price = models.DecimalField(max_digits=15,
                                      decimal_places=2,
                                      verbose_name=_('price for item'))
