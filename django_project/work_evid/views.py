@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
-from work_evid.models import Firm, Work, WorkForm
+from work_evid.models import Firm, Work, WorkForm, Todo
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
@@ -172,3 +172,26 @@ class FirmUpdate(LoginRequiredMixin, UpdateView):
 class FirmDelete(LoginRequiredMixin, DeleteView):
     model = Firm
     success_url = reverse_lazy('work_evid:firm_list')
+
+
+class TodoList(LoginRequiredMixin, ListView):
+    model = Todo
+
+
+class TodoCreate(LoginRequiredMixin, CreateView):
+    model = Todo
+
+
+class TodoDetail(LoginRequiredMixin, DetailView):
+    model = Todo
+
+
+class TodoUpdate(LoginRequiredMixin, UpdateView):
+    model = Todo
+
+
+class TodoDelete(LoginRequiredMixin, DeleteView):
+    model = Todo
+    success_url = reverse_lazy('work_evid:todo_list')
+
+

@@ -15,8 +15,9 @@ Application use I18n and is translatable. Views and templates use i18n posibilit
 
 Requirements
 ------------
-* Django, tested on 1.5 and 1.6 and 1.7 (also warnings towards 1.8)
 * Python, tested on 2.7
+* Django, tested on 1.5 and 1.6 and 1.7 (also warnings towards 1.8)
+* [django-markdown-deux](https://github.com/trentm/django-markdown-deux)
 
 Current status
 --------------
