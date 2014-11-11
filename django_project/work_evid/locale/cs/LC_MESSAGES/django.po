@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Work Evid\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-19 22:58+0200\n"
-"PO-Revision-Date: 2014-06-19 22:38+0100\n"
+"POT-Creation-Date: 2014-11-11 15:23+0100\n"
+"PO-Revision-Date: 2014-11-11 15:29+0100\n"
 "Last-Translator: Viktor Matys <v.matys@grumpa.net>\n"
 "Language-Team: Czech <v.matys@grumpa.net>\n"
 "Language: cs\n"
@@ -19,59 +19,76 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SourceCharset: cs\n"
 
-#: models.py:11 templates/work_evid/firm_confirm_delete.html:9
+#: models.py:12 templates/work_evid/firm_confirm_delete.html:9
 #: templates/work_evid/firm_detail.html:10
 #: templates/work_evid/firm_list.html:17
+#: templates/work_evid/todo_detail_table.html:6
+#: templates/work_evid/todo_list.html:17
 msgid "firm name"
 msgstr "jméno firmy"
 
-#: models.py:13
+#: models.py:14
 msgid "periode [months]"
 msgstr "perioda [měsíce]"
 
-#: models.py:14
+#: models.py:15
 msgid "How often we make an invoice."
 msgstr "Jak často fakturujeme."
 
-#: models.py:15 templates/work_evid/firm_confirm_delete.html:17
+#: models.py:16 templates/work_evid/firm_confirm_delete.html:17
 #: templates/work_evid/firm_detail.html:18
-#: templates/work_evid/firm_list.html:19
+#: templates/work_evid/firm_list.html:19 templates/work_evid/todo_list.html:18
 msgid "from date"
 msgstr "od data"
 
-#: models.py:16 templates/work_evid/firm_confirm_delete.html:21
+#: models.py:17 templates/work_evid/firm_confirm_delete.html:21
 #: templates/work_evid/firm_detail.html:22
 #: templates/work_evid/firm_list.html:20
 msgid "description"
 msgstr "popis"
 
-#: models.py:23 models.py:35 templates/work_evid/index.html:35
-#: templates/work_evid/overviews.html:52 templates/work_evid/overviews.html:69
+#: models.py:24 models.py:32 models.py:62 templates/work_evid/index.html:35
+#: templates/work_evid/overviews.html:54 templates/work_evid/overviews.html:71
 msgid "firm"
 msgstr "firma"
 
-#: models.py:36 templates/work_evid/index.html:36
-#: templates/work_evid/overviews.html:70
+#: models.py:33 templates/work_evid/index.html:36
+#: templates/work_evid/overviews.html:72
 msgid "work date"
 msgstr "datum práce"
 
-#: models.py:39
+#: models.py:36
 msgid "price for item"
 msgstr "cena za jednotku"
 
-#: models.py:43
+#: models.py:40
 msgid "ammount of items"
 msgstr "množství jednotek"
 
-#: models.py:44
+#: models.py:41
 msgid "what (briefly)"
 msgstr "co (stručně)"
 
-#: models.py:45
+#: models.py:42
 msgid "describe detailed"
 msgstr "detailní popis"
 
-#: templates/registration/logged_out.html:3 templates/work_evid/base.html:31
+#: models.py:63
+#| msgid "firm create"
+msgid "created"
+msgstr "vytvořeno"
+
+#: models.py:64 templates/work_evid/base.html:27
+#: templates/work_evid/todo_detail_table.html:14
+#: templates/work_evid/todo_list.html:19
+msgid "todo"
+msgstr "todo"
+
+#: models.py:65 templates/work_evid/todo_detail_table.html:18
+msgid "finished"
+msgstr "dokončeno"
+
+#: templates/registration/logged_out.html:3 templates/work_evid/base.html:32
 msgid "logout"
 msgstr "odhlášení"
 
@@ -109,16 +126,16 @@ msgstr "Webová aplikace pro evidenci práce."
 msgid "evidence, work, web application"
 msgstr "evidence, práce, webová aplikace"
 
-#: templates/work_evid/base.html:27
+#: templates/work_evid/base.html:28
 msgid "works"
 msgstr "práce"
 
-#: templates/work_evid/base.html:28 templates/work_evid/delete_work.html:3
-#: templates/work_evid/overviews.html:3
+#: templates/work_evid/base.html:29 templates/work_evid/delete_work.html:3
+#: templates/work_evid/overviews.html:5
 msgid "overviews"
 msgstr "přehledy"
 
-#: templates/work_evid/base.html:29
+#: templates/work_evid/base.html:30
 msgid "firms edit"
 msgstr "editace firem"
 
@@ -139,9 +156,9 @@ msgid "no"
 msgstr "ne"
 
 #: templates/work_evid/firm_confirm_delete.html:3
-#: templates/work_evid/firm_detail.html:4 templates/work_evid/firm_list.html:4
-msgid "firm list"
-msgstr "seznam firem"
+#| msgid "firm create"
+msgid "firm confirm delete"
+msgstr "firma - potvrdit smazání"
 
 #: templates/work_evid/firm_confirm_delete.html:5
 #: templates/work_evid/firm_detail.html:6
@@ -155,32 +172,45 @@ msgid "period"
 msgstr "období"
 
 #: templates/work_evid/firm_confirm_delete.html:26
+#: templates/work_evid/todo_confirm_delete.html:9
 msgid "Really delete"
 msgstr "Skutečně smazat"
 
 #: templates/work_evid/firm_confirm_delete.html:29
 #: templates/work_evid/index.html:46
+#: templates/work_evid/todo_confirm_delete.html:12
 msgid "Delete"
 msgstr "Smazat"
 
 #: templates/work_evid/firm_confirm_delete.html:32
+#: templates/work_evid/todo_confirm_delete.html:15
 msgid "No"
 msgstr "Ne"
 
+#: templates/work_evid/firm_detail.html:4
+#| msgid "Firm detail"
+msgid "firm detail"
+msgstr "detail firmy"
+
 #: templates/work_evid/firm_detail.html:30
+#: templates/work_evid/todo_detail.html:13
 msgid "list"
 msgstr "seznam"
 
 #: templates/work_evid/firm_detail.html:31
+#: templates/work_evid/todo_detail.html:14
 msgid "To list"
 msgstr "Na seznam"
 
 #: templates/work_evid/firm_detail.html:35
 #: templates/work_evid/firm_list.html:31 templates/work_evid/firm_list.html:32
+#: templates/work_evid/todo_detail.html:18
+#: templates/work_evid/todo_list.html:30 templates/work_evid/todo_list.html:31
 msgid "update"
 msgstr "upravit"
 
 #: templates/work_evid/firm_detail.html:36
+#: templates/work_evid/todo_detail.html:19
 msgid "Update"
 msgstr "Upravit"
 
@@ -192,9 +222,13 @@ msgstr "vytvořit firmu"
 msgid "Firm - create"
 msgstr "Firma - vytvořit"
 
-#: templates/work_evid/firm_form.html:14
+#: templates/work_evid/firm_form.html:14 templates/work_evid/todo_form.html:14
 msgid "Back"
 msgstr "Zpět"
+
+#: templates/work_evid/firm_list.html:4
+msgid "firm list"
+msgstr "seznam firem"
 
 #: templates/work_evid/firm_list.html:6
 msgid "Firms list"
@@ -204,15 +238,17 @@ msgstr "Seznam firem"
 msgid "add new"
 msgstr "přidat novou"
 
-#: templates/work_evid/firm_list.html:16
+#: templates/work_evid/firm_list.html:16 templates/work_evid/todo_list.html:16
 msgid "operation"
 msgstr "operace"
 
 #: templates/work_evid/firm_list.html:27 templates/work_evid/firm_list.html:28
+#: templates/work_evid/todo_list.html:26 templates/work_evid/todo_list.html:27
 msgid "delete"
 msgstr "smazat"
 
 #: templates/work_evid/firm_list.html:29 templates/work_evid/firm_list.html:30
+#: templates/work_evid/todo_list.html:28 templates/work_evid/todo_list.html:29
 msgid "detail"
 msgstr "detail"
 
@@ -232,15 +268,15 @@ msgstr "Poslední práce"
 msgid "select"
 msgstr "vybrat"
 
-#: templates/work_evid/index.html:37 templates/work_evid/overviews.html:71
+#: templates/work_evid/index.html:37 templates/work_evid/overviews.html:73
 msgid "item price"
 msgstr "cena položky"
 
-#: templates/work_evid/index.html:38 templates/work_evid/overviews.html:72
+#: templates/work_evid/index.html:38 templates/work_evid/overviews.html:74
 msgid "items"
 msgstr "položek"
 
-#: templates/work_evid/index.html:39 templates/work_evid/overviews.html:74
+#: templates/work_evid/index.html:39 templates/work_evid/overviews.html:76
 msgid "what we did"
 msgstr "co jsme dělali"
 
@@ -256,54 +292,94 @@ msgstr "Upravit"
 msgid "No firm in database. Add some first."
 msgstr "Žádná firma v databázi. Nejdříve nějaké vytvoř."
 
-#: templates/work_evid/overviews.html:9
+#: templates/work_evid/overviews.html:11
 msgid "Filters"
 msgstr "Filtry"
 
-#: templates/work_evid/overviews.html:10
+#: templates/work_evid/overviews.html:12
 msgid "Year"
 msgstr "Rok"
 
-#: templates/work_evid/overviews.html:12 templates/work_evid/overviews.html:23
-#: templates/work_evid/overviews.html:35 templates/work_evid/overviews.html:37
+#: templates/work_evid/overviews.html:14 templates/work_evid/overviews.html:25
+#: templates/work_evid/overviews.html:37 templates/work_evid/overviews.html:39
 msgid "all"
 msgstr "všechny"
 
-#: templates/work_evid/overviews.html:21
+#: templates/work_evid/overviews.html:23
 msgid "Month"
 msgstr "Měsíc"
 
-#: templates/work_evid/overviews.html:32
+#: templates/work_evid/overviews.html:34
 msgid "Firm"
 msgstr "Firma"
 
-#: templates/work_evid/overviews.html:47
+#: templates/work_evid/overviews.html:49
 msgid "Order by"
 msgstr "Řadit dle"
 
-#: templates/work_evid/overviews.html:50
+#: templates/work_evid/overviews.html:52
+#: templates/work_evid/todo_detail_table.html:10
 msgid "date"
 msgstr "datum"
 
-#: templates/work_evid/overviews.html:73
+#: templates/work_evid/overviews.html:75
 msgid "sum"
 msgstr "suma"
 
-#: templates/work_evid/overviews.html:81
+#: templates/work_evid/overviews.html:83
 msgid "total"
 msgstr "úhrnem"
 
-#: templates/work_evid/overviews.html:87
+#: templates/work_evid/overviews.html:89
 msgid "delete selected"
 msgstr "smazat vybrané"
 
-#: templates/work_evid/overviews.html:100
+#: templates/work_evid/overviews.html:102
 msgid "sub"
 msgstr "mezisoučet"
 
-#: templates/work_evid/overviews.html:146
+#: templates/work_evid/overviews.html:148
 msgid "No work in database. Nothing to show. Work first :-)."
 msgstr "Žádná práce v databázi. Není co ukázat. Nejdřív pracuj :-)."
+
+#: templates/work_evid/todo_confirm_delete.html:3
+msgid "todo confirm delete"
+msgstr "todo - potvrdit smazání"
+
+#: templates/work_evid/todo_confirm_delete.html:5
+#: templates/work_evid/todo_detail.html:6
+#| msgid "detail"
+msgid "Todo detail"
+msgstr "Todo detail"
+
+#: templates/work_evid/todo_detail.html:4
+#| msgid "detail"
+msgid "todo detail"
+msgstr "todo detail"
+
+#: templates/work_evid/todo_form.html:4
+msgid "create todo"
+msgstr "vytvořit todo"
+
+#: templates/work_evid/todo_form.html:6
+#| msgid "Firm - create"
+msgid "Todo - create"
+msgstr "Todo - vytvořit"
+
+#: templates/work_evid/todo_list.html:4
+#| msgid "To list"
+msgid "todo list"
+msgstr "todo seznam"
+
+#: templates/work_evid/todo_list.html:6
+#| msgid "To list"
+msgid "Todo list"
+msgstr "Todo seznam"
+
+#: templates/work_evid/todo_list.html:10
+#| msgid "add new"
+msgid "add"
+msgstr "přidat"
 
 #~ msgid "firm edit form"
 #~ msgstr "formulář editace firem"
