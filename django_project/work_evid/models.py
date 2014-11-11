@@ -62,7 +62,7 @@ class Todo(models.Model):
     firm = models.ForeignKey(Firm, verbose_name=_('firm'))
     date = models.DateField(default=timezone.now, verbose_name=_('created'))
     todo = models.TextField(blank=True, verbose_name=_('todo'))
-    finished = models.BooleanField(default=False)
+    finished = models.BooleanField(default=False, verbose_name=_('finished'))
 
     def __unicode__(self):
         return '{0} {1} {2}'.format(self.date, self.firm[:12], self.todo[:40])
