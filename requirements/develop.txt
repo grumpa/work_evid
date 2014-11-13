@@ -1,0 +1,5 @@
+-r production.txt
+
+bpython
+django-extensions
+Werkzeug
