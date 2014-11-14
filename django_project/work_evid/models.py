@@ -48,6 +48,9 @@ class Work(models.Model):
 
     #full_price = property(_get_full_price)
 
+    def get_absolute_url(self):
+        return reverse('work_evid:work_detail', kwargs={'pk': self.pk})
+
     class Meta:
         ordering = ['-date']
 

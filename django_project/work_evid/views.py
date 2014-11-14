@@ -5,7 +5,7 @@ from django.utils.translation import ugettext as _
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.core.urlresolvers import reverse_lazy
+from django.core.urlresolvers import reverse_lazy, reverse
 from work_evid.models import Firm, Work, WorkForm, Todo
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -151,6 +151,30 @@ def delete_work(request):
     else:
         # impossible
         return redirect('work_evid:overviews')
+
+
+class WorkList(LoginRequiredMixin, ListView):
+    model = Work
+
+    def get_queryset(self):
+        return super(WorkList, self).get_queryset().filter()[:25]
+
+
+class WorkDetail(LoginRequiredMixin, DetailView):
+    model = Work
+
+
+class WorkCreate(LoginRequiredMixin, CreateView):
+    model = Work
+
+
+class WorkUpdate(LoginRequiredMixin, UpdateView):
+    model = Work
+
+
+class WorkDelete(LoginRequiredMixin, DeleteView):
+    model = Work
+    success_url = reverse_lazy('work_evid:work_list')
 
 
 class FirmList(LoginRequiredMixin, ListView):
