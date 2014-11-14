@@ -1,0 +1,26 @@
+{% load i18n %}
+{% load markdown_deux_tags %}
+<table>
+    <tbody>
+        <tr>
+            <th>{% trans 'firm name' %}</th>
+            <td>{{ object.firm.name }}</td>
+        </tr>
+        <tr>
+            <th>{% trans 'date' %}</th>
+            <td>{{ object.date|date:"j.n.Y (D)" }}</td>
+        </tr>
+        <tr>
+            <th>{% trans 'items x price' %}</th>
+            <td>{{object.items}} x {{object.item_price}} = {{object.full_price}}</td>
+        </tr>
+        <tr>
+            <th>{% trans 'what (briefly)' %}</th>
+            <td>{{ object.what_brief }}</td>
+        </tr>
+        <tr>
+            <th>{% trans 'describe detailed' %}</th>
+            <td>{{ object.what_detailed|markdown }}</td>
+        </tr>
+    </tbody>
+</table>

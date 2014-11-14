@@ -1,0 +1,27 @@
+{% extends 'work_evid/base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% block title %} {% trans 'Work Detail' %} {% endblock %}
+{% block page_body %}
+<h2>{% trans 'Work Detail' %}</h2>
+
+{% include 'work_evid/work_detail_table.html' %}
+
+<div style="margin-top: 6px;">
+<a href="{% url 'work_evid:work_delete' object.pk %}">
+    <button type="button">
+  <img src="{% static 'work_evid/images/icon_delete_16.png' %}" alt="{% trans 'delete' %}">
+    {% trans 'Delete' %}
+    </button></a>
+<a href="{% url 'work_evid:work_list' %}">
+    <button type="button">
+  <img src="{% static 'work_evid/images/icon_list_16.png' %}" alt="{% trans 'list' %}">
+    {% trans 'To list' %}
+    </button></a>
+<a href="{% url 'work_evid:work_update' object.pk %}">
+    <button type="button">
+  <img src="{% static 'work_evid/images/icon_edit_16.png' %}" alt="{% trans 'update' %}">
+    {% trans 'Update' %}
+    </button></a>
+</div>
+{% endblock %}
