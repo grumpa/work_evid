@@ -3,3 +3,4 @@
 bpython
 django-extensions
 Werkzeug
+django-debug-toolbar
