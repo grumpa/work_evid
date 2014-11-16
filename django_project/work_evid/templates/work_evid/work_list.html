@@ -1,0 +1,46 @@
+{% extends 'work_evid/base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% block title %} {% trans 'Work List' %} {% endblock %}
+{% block page_body %}
+<h2>{% trans 'Work List' %}</h2>
+<a href="{% url 'work_evid:work_create' %}">
+  <button type="button" style="margin-bottom: 6px;">
+    <img src="{% static 'work_evid/images/icon_plus_16.png' %}" alt="add">
+    {% trans 'add new'%}
+  </button>
+</a>
+<table>
+  <thead>
+    <tr>
+      <th>{% trans 'operation' %}</th>
+      <th>{% trans 'firm' %}</th>
+      <th>{% trans 'date' %}</th>
+      <th>{% trans 'price' %}</th>
+      <th>{% trans 'items' %}</th>
+      <th>{% trans 'total' %}</th>
+      <th>{% trans 'what' %}</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for object in object_list %}
+    <tr>
+      <td style="text-align: center">
+        <a href="{% url 'work_evid:work_delete' object.pk %}" title="{% trans 'delete' %}">
+          <img src="{% static 'work_evid/images/icon_delete_16.png' %}" alt="{% trans 'delete' %}"></a>
+        <a href="{% url 'work_evid:work_detail' object.pk %}" title="{% trans 'detail' %}">
+          <img src="{% static 'work_evid/images/icon_detail_16.png' %}" alt="{% trans 'detail' %}"></a>
+        <a href="{% url 'work_evid:work_update' object.pk %}" title="{% trans 'update' %}">
+          <img src="{% static 'work_evid/images/icon_edit_16.png' %}" alt="{% trans 'update' %}"></a>
+      </td>
+      <td>{{ object.firm.name }}</td>
+      <td class="right">{{ object.date|date:"D j.m.Y" }}</td>
+      <td class="right">{{ object.item_price|floatformat:2 }}</td>
+      <td class="right">{{ object.items }}</td>
+      <td class="right">{{ object.full_price|floatformat:2 }}</td>
+      <td title="{{object.what_brief}}">{{ object.what_brief|truncatechars:50 }}</td>
+      </tr>
+      {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
