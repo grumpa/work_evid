@@ -4,7 +4,6 @@ import django.contrib.auth.views
 from work_evid import views
 
 urlpatterns = patterns('',
-    #url(r'^$', views.index, name='index'),
     url(r'^overviews/$', views.overviews, name='overviews'),
     url(r'^delete_work/$', views.delete_work, name='delete_work'),
     url(r'^work/$', views.WorkList.as_view(), name='work_list'),

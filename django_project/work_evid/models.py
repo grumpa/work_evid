@@ -55,12 +55,6 @@ class Work(models.Model):
         ordering = ['-date']
 
 
-class WorkForm(ModelForm):
-    class Meta:
-        model = Work
-        fields = ['firm', 'date', 'item_price', 'items', 'what_brief', 'what_detailed']
-
-
 class Todo(models.Model):
     firm = models.ForeignKey(Firm, verbose_name=_('firm'))
     date = models.DateField(default=timezone.now, verbose_name=_('created'))

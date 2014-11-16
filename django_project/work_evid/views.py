@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy, reverse
-from work_evid.models import Firm, Work, WorkForm, Todo
+from work_evid.models import Firm, Work, Todo
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
@@ -15,42 +15,6 @@ class LoginRequiredMixin(object):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(LoginRequiredMixin, self).dispatch(*args, **kwargs)
-
-
-@login_required
-def index(request):
-    "Manages work records."
-    form = WorkForm()  # default
-    pk = None
-    if request.method == 'POST':
-        if 'action' in request.POST:
-            pk = request.POST['pk']
-            work = Work.objects.get(pk=pk)
-            if request.POST['action'] == 'edit':
-                form = WorkForm(instance=work)
-            if request.POST['action'] == 'delete':
-                Work.objects.get(pk=pk).delete()
-        else:
-            pk = request.POST['pk']
-            if pk != "None":
-                # update
-                work = Work.objects.get(pk=pk)
-                form = WorkForm(request.POST, instance=work)
-            else:
-                # new record
-                form = WorkForm(request.POST)
-            if form.is_valid():
-                form.save()
-                form = WorkForm()
-                pk = None
-    works = Work.objects.all()[:16]
-    return render(request,
-                  'work_evid/index.html',
-                  {'form': form,
-                   'works': works,
-                   'pk': pk,
-                   'firms_exist': Firm.objects.exists(),
-                   })
 
 
 @login_required
