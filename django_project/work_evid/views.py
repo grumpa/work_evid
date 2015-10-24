@@ -73,7 +73,8 @@ def overviews(request):
         years.append(year.year)
     return render(
         request,
-        'work_evid/overviews.html', {
+        'work_evid/overviews.html',
+        {
             'works': works,
             'firms': firms,
             'sel_year': sel_year,
@@ -84,8 +85,7 @@ def overviews(request):
             'years': years,
             'works_total': works_total,
             'works_sub': works_sub,
-            }
-        )
+        })
 
 
 def delete_work(request):
