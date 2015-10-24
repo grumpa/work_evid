@@ -130,10 +130,12 @@ class WorkDetail(LoginRequiredMixin, DetailView):
 
 class WorkCreate(LoginRequiredMixin, CreateView):
     model = Work
+    fields = ['firm', 'date', 'item_price', 'items', 'what_brief', 'what_detailed']
 
 
 class WorkUpdate(LoginRequiredMixin, UpdateView):
     model = Work
+    fields = ['firm', 'date', 'item_price', 'items', 'what_brief', 'what_detailed']
 
 
 class WorkDelete(LoginRequiredMixin, DeleteView):
@@ -147,6 +149,7 @@ class FirmList(LoginRequiredMixin, ListView):
 
 class FirmCreate(LoginRequiredMixin, CreateView):
     model = Firm
+    fields = ['name', 'periode', 'from_date', 'description']
 
 
 class FirmDetail(LoginRequiredMixin, DetailView):
@@ -155,6 +158,7 @@ class FirmDetail(LoginRequiredMixin, DetailView):
 
 class FirmUpdate(LoginRequiredMixin, UpdateView):
     model = Firm
+    fields = ['name', 'periode', 'from_date', 'description']
 
 
 class FirmDelete(LoginRequiredMixin, DeleteView):
@@ -168,6 +172,7 @@ class TodoList(LoginRequiredMixin, ListView):
 
 class TodoCreate(LoginRequiredMixin, CreateView):
     model = Todo
+    fields = ['firm', 'date', 'todo', 'finished']
 
 
 class TodoDetail(LoginRequiredMixin, DetailView):
@@ -176,10 +181,9 @@ class TodoDetail(LoginRequiredMixin, DetailView):
 
 class TodoUpdate(LoginRequiredMixin, UpdateView):
     model = Todo
+    fields = ['firm', 'date', 'todo', 'finished']
 
 
 class TodoDelete(LoginRequiredMixin, DeleteView):
     model = Todo
     success_url = reverse_lazy('work_evid:todo_list')
-
-
