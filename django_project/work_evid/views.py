@@ -80,7 +80,7 @@ def overviews(request):
             'sel_month': sel_month,
             'sel_firm': sel_firm,
             'sel_order': sel_order,
-            'months': range(1, 13),
+            'months': list(range(1, 13)),
             'years': years,
             'works_total': works_total,
             'works_sub': works_sub,
