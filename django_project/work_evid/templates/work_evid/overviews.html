@@ -4,7 +4,7 @@
 {% load cycle from future %}
 {% block title %} {% trans 'overviews' %} {% endblock %}
 {% block page_body %}
-{% if work|length > 0 %}
+{% if works|length > 0 %}
 <div id="overview_filters">
     <form action="{% url 'work_evid:overviews' %}" method="post">
         {% csrf_token %}
