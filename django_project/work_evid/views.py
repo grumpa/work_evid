@@ -149,7 +149,7 @@ class FirmList(LoginRequiredMixin, ListView):
 
 class FirmCreate(LoginRequiredMixin, CreateView):
     model = Firm
-    fields = ['name', 'periode', 'from_date', 'description']
+    fields = ['name', 'periode', 'from_date', 'description', 'show_in_list']
 
 
 class FirmDetail(LoginRequiredMixin, DetailView):
@@ -158,7 +158,7 @@ class FirmDetail(LoginRequiredMixin, DetailView):
 
 class FirmUpdate(LoginRequiredMixin, UpdateView):
     model = Firm
-    fields = ['name', 'periode', 'from_date', 'description']
+    fields = ['name', 'periode', 'from_date', 'description', 'show_in_list']
 
 
 class FirmDelete(LoginRequiredMixin, DeleteView):
@@ -174,6 +174,12 @@ class TodoCreate(LoginRequiredMixin, CreateView):
     model = Todo
     fields = ['firm', 'date', 'todo', 'finished']
 
+    # def get_initial(self, **kwargs):
+    #     initial = super(TodoCreate, self).get_initial(**kwargs)
+    #     initial['firm'] = Firm.objects.filter(show_in_list=True)
+    #     initial['todo'] = 'test text'
+    #     return initial
+
 
 class TodoDetail(LoginRequiredMixin, DetailView):
     model = Todo
@@ -182,6 +188,12 @@ class TodoDetail(LoginRequiredMixin, DetailView):
 class TodoUpdate(LoginRequiredMixin, UpdateView):
     model = Todo
     fields = ['firm', 'date', 'todo', 'finished']
+
+    # def get_initial(self, **kwargs):
+    #     initial = super(TodoUpdate, self).get_initial(**kwargs)
+    #     initial['firm'] = Firm.objects.filter(show_in_list=True)
+    #     initial['todo']= 'test content'
+    #     return initial
 
 
 class TodoDelete(LoginRequiredMixin, DeleteView):

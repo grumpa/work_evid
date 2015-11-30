@@ -15,6 +15,7 @@ class Firm(models.Model):
                                   help_text=_('How often we make an invoice.'))
     from_date = models.DateField(default=timezone.now, verbose_name=_('from date'))
     description = models.TextField(blank=True, verbose_name=_('description'))
+    show_in_list = models.BooleanField(default=True, verbose_name=_('show in list'))
 
     def get_absolute_url(self):
         return reverse('work_evid:firm_detail', kwargs={'pk': self.pk})
