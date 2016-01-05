@@ -1,6 +1,5 @@
 # coding: utf-8
 
-from __future__ import unicode_literals
 from django.utils.translation import ugettext as _
 from django.db import models
 from django.core.urlresolvers import reverse
@@ -24,7 +23,7 @@ class Firm(models.Model):
         ordering = ['name']
         verbose_name = _('firm')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -62,7 +61,7 @@ class Todo(models.Model):
     todo = models.TextField(blank=True, verbose_name=_('todo'))
     finished = models.BooleanField(default=False, verbose_name=_('finished'))
 
-    def __unicode__(self):
+    def __str__(self):
         return '{0} {1} {2}'.format(self.date, self.firm[:12], self.todo[:40])
 
     def get_absolute_url(self):
