@@ -9,6 +9,7 @@ from django.core.urlresolvers import reverse_lazy, reverse
 from work_evid.models import Firm, Work, Todo
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from .forms import TodoForm, WorkForm
 
 
 class LoginRequiredMixin(object):
@@ -130,12 +131,12 @@ class WorkDetail(LoginRequiredMixin, DetailView):
 
 class WorkCreate(LoginRequiredMixin, CreateView):
     model = Work
-    fields = ['firm', 'date', 'item_price', 'items', 'what_brief', 'what_detailed']
+    form_class = WorkForm
 
 
 class WorkUpdate(LoginRequiredMixin, UpdateView):
     model = Work
-    fields = ['firm', 'date', 'item_price', 'items', 'what_brief', 'what_detailed']
+    form_class = WorkForm
 
 
 class WorkDelete(LoginRequiredMixin, DeleteView):
@@ -172,13 +173,8 @@ class TodoList(LoginRequiredMixin, ListView):
 
 class TodoCreate(LoginRequiredMixin, CreateView):
     model = Todo
-    fields = ['firm', 'date', 'todo', 'finished']
-
-    # def get_initial(self, **kwargs):
-    #     initial = super(TodoCreate, self).get_initial(**kwargs)
-    #     initial['firm'] = Firm.objects.filter(show_in_list=True)
-    #     initial['todo'] = 'test text'
-    #     return initial
+    form_class = TodoForm
+    required_css_class = 'required'
 
 
 class TodoDetail(LoginRequiredMixin, DetailView):
@@ -187,13 +183,8 @@ class TodoDetail(LoginRequiredMixin, DetailView):
 
 class TodoUpdate(LoginRequiredMixin, UpdateView):
     model = Todo
-    fields = ['firm', 'date', 'todo', 'finished']
-
-    # def get_initial(self, **kwargs):
-    #     initial = super(TodoUpdate, self).get_initial(**kwargs)
-    #     initial['firm'] = Firm.objects.filter(show_in_list=True)
-    #     initial['todo']= 'test content'
-    #     return initial
+    form_class = TodoForm
+    required_css_class = 'required'
 
 
 class TodoDelete(LoginRequiredMixin, DeleteView):
