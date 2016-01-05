@@ -18,6 +18,7 @@
       <th>{% trans 'period' %}</th>
       <th>{% trans 'from date' %}</th>
       <th>{% trans 'description' %}</th>
+      <th>{% trans 'show' %}</th>
     </tr>
   </thead>
   <tbody>
@@ -35,6 +36,7 @@
       <td class="center">{{ object.periode }}</td>
       <td>{{ object.from_date }}</td>
       <td>{{ object.description|truncatewords:20 }}</td>
+      <td>{{ object.show_in_list }}</td>
       </tr>
       {% endfor %}
   </tbody>
