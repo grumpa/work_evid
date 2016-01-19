@@ -170,6 +170,24 @@ class FirmDelete(LoginRequiredMixin, DeleteView):
 class TodoList(LoginRequiredMixin, ListView):
     model = Todo
 
+    def get_queryset(self):
+        """
+        If url without firm_id return all Todos, else filter required firm.
+        """
+        if "firm" in self.kwargs:
+            return Todo.objects.filter(firm_id=int(self.kwargs['firm']))
+        else:
+            return super(TodoList, self).get_queryset()
+
+    def get_context_data(self):
+        context = super(TodoList, self).get_context_data()
+        context['firms'] = Firm.objects.all()
+        if "firm" in self.kwargs:
+            context['firm_selected'] = int(self.kwargs['firm'])
+        else:
+            context['firm_selected'] = 'ALL'
+        return context
+
 
 class TodoCreate(LoginRequiredMixin, CreateView):
     model = Todo

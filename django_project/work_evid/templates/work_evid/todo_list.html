@@ -10,6 +10,13 @@
     {% trans 'add'%}
   </button>
 </a>
+
+<select onchange="a_go(this.value)">
+  <option value="ALL" {% if firm_selected == 'ALL' %} selected {% endif %}>{% trans 'all' %}</option>
+  {% for firm in firms %}
+      <option value="{{ firm.id }}" {% if firm.id == firm_selected %} selected {% endif %}>{{ firm.name }}</option>
+  {% endfor %}
+</select>
 <table>
   <thead>
     <tr>
@@ -37,4 +44,18 @@
       {% endfor %}
   </tbody>
 </table>
+
+
+<script type="text/javascript">
+function a_go(firm_id) {
+  var url = "{% url 'work_evid:todo_list' %}"
+  if (firm_id == 'ALL') {
+    window.location = url
+  }
+  else {
+    window.location = url + firm_id + '/'
+  }
+}
+</script>
+
 {% endblock %}
