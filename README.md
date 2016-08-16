@@ -18,7 +18,7 @@ Application use I18n and is translatable. Views and templates use i18n posibilit
 Requirements
 ------------
 * Python, tested on 3.4. Support for Python-2 has stopped.
-* Django, tested on 1.7 and 1.8 (1.9 testing in progres and seems OK)
+* Django, tested on 1.7, 1.8 and 1.9
 * [django-markdown-deux](https://github.com/trentm/django-markdown-deux)
 
 Current status
