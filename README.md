@@ -1,7 +1,7 @@
 Work Evidence
 =========
 
-Attention :-) : My learning application in Django.
+Attention :-) : My learning application in Django. Now in year 2017 I'd use more class based views. I use this app still, but I don't have time to rewrite it. Nice piece of history of learning Django. My the biggest step in learning it was reading book Two Scoops of Django.
 
 Keep a record of work you do for your customers. You can filter records by months/years and see
 summary of money by customer. Good as source for your invoices.
