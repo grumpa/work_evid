@@ -1,7 +1,7 @@
 Work Evidence
 =========
 
-Attention :-) : My learning application in Django. Now in year 2017 I'd use more class based views. I use this app still, but I don't have time to rewrite it. Nice piece of history of learning Django. My the biggest step in learning it was reading book Two Scoops of Django.
+Attention :-) : My learning application in Django. Now in the year 2017 I'd use more class based views. I use this app still, but I don't have time to rewrite it. Nice piece of history of learning Django. My the biggest step in learning it was reading book Two Scoops of Django.
 
 Keep a record of work you do for your customers. You can filter records by months/years and see
 summary of money by customer. Good as source for your invoices.
@@ -13,7 +13,7 @@ You can:
 * maintain evidence of work done for customers
 * display records with some filtering (year/month/customer) and two styles: timeline and by the customers.
 
-Application use I18n and is translatable. Views and templates use i18n posibilities of Django.
+Application use I18n and is translatable. Views and templates use i18n possibilities of Django.
 
 Requirements
 ------------
@@ -25,14 +25,14 @@ Current status
 --------------
 
 Application is in usable state. It would be probably difficult to incorporate it
-in your project due to templates and authentification which are somehow egocentric.
+in your project due to templates and authentication which are somehow egocentric.
 Use it as standalone project/app.
 
 
 Expected audience
 -----------------
 
-If you are more experienced then me, or you are enthuisiastic student of Django and you want to collaborate, welcome to my club. I want to learn how to paricipate in collaborative work too. :-)
+If you are more experienced then me, or you are enthusiastic student of Django and you want to collaborate, welcome to my club. I want to learn how to participate in collaborative work too. :-)
 
 
 Changelog
