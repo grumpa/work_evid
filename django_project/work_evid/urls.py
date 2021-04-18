@@ -1,9 +1,9 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 import django.contrib.auth.views
 
 from work_evid import views
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^overviews/$', views.overviews, name='overviews'),
     url(r'^delete_work/$', views.delete_work, name='delete_work'),
     url(r'^work/$', views.WorkList.as_view(), name='work_list'),
@@ -25,4 +25,4 @@ urlpatterns = patterns('',
     url(r'^accounts/login/$', django.contrib.auth.views.login, name='login'),
     url(r'^accounts/logout/$', django.contrib.auth.views.logout, name='logout'),
     url(r'^$', views.WorkList.as_view(), name='index'),
-)
+]
